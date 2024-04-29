@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public Canvas _MainMenu;
+    /*public Canvas _MainMenu;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -25,5 +25,5 @@ public class MainMenu : MonoBehaviour
         _MainMenu.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
+    }*/
 }
