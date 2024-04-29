@@ -5,13 +5,15 @@ using UnityEngine;
 public class PickUpObject : MonoBehaviour
 {
     public Transform handTransform; 
-    private GameObject itemInRange;
+    public GameObject itemInRange;
+    private bool isHolding = false;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && itemInRange != null) 
         {
-            PickupItem(); // Поднимаем предмет
+            if (!isHolding) PickupItem();
+            else LeaveItem();
         }
     }
 
@@ -37,5 +39,13 @@ public class PickUpObject : MonoBehaviour
         itemInRange.transform.localPosition = Vector3.zero; 
         itemInRange.transform.localRotation = Quaternion.identity; 
         itemInRange.GetComponent<Rigidbody>().isKinematic = true; 
+        isHolding = true;
+    }
+    
+    private void LeaveItem() 
+    {
+        itemInRange.transform.SetParent(null); 
+        itemInRange.GetComponent<Rigidbody>().isKinematic = false; 
+        isHolding = false;
     }
 }
