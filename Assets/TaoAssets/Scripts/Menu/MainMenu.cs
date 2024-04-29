@@ -3,18 +3,35 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    /*public Canvas _MainMenu;
+    public FirstPersonLook Player;
+    public GameObject _MainMenu;
+    bool isMenu = false;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            _MainMenu.gameObject.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            GameMenuButton();
         }
+    }
+    public void GameMenuButton() {
+        if (!isMenu) { 
+                Time.timeScale = 0;
+                Player.sensitivity = 0;
+                _MainMenu.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                isMenu = true;
+            }
+            else {
+                GameContinueButton();
+            }
     }
     public void GameStartButton()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void GameMainButton() {
+        SceneManager.LoadScene(2);
     }
 
     public void GameExitButton()
@@ -22,8 +39,11 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
     public void GameContinueButton() {
-        _MainMenu.gameObject.SetActive(false);
+        isMenu = false;
+        Time.timeScale = 1f;
+        Player.sensitivity = 2f;
+        _MainMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }*/
+    }
 }
