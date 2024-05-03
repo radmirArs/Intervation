@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pause_Screen: {fileID: 351916559}
+  player: {fileID: 831904329}
 --- !u!1 &351916559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 158727186456124373, guid: 5be823eb59192b14fa174468f6761aa4,
@@ -183,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52e773f91854f748820aa1eff8318d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 831904329}
 --- !u!1 &604525842
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,6 +316,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!4 &831904329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1174608579}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &838608546
 GameObject:
   m_ObjectHideFlags: 0
