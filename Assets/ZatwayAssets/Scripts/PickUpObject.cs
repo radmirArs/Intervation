@@ -9,13 +9,14 @@ public class PickUpObject : MonoBehaviour
     private GameObject lastItem;
     private bool isHolding = false;
     private Vector3 Ray_start_position = new Vector3(Screen.width/2, Screen.height/2, 0);
-
+    private bool fakeBox = false; //zatway 
     void Update()
     {
         ReleaseRay();
         if (Input.GetKeyDown(KeyCode.E)) 
         {
-            if (!isHolding && itemInRange != null) PickupItem();
+            if (!isHolding && itemInRange != null && fakeBox == false) PickupItem();
+            else if (!isHolding && itemInRange != null && fakeBox == true) ControllerFakeBox.DestroyFakeBox(itemInRange); //zatway 
             else if (isHolding) LeaveItem();
         }
     }
@@ -25,8 +26,18 @@ public class PickUpObject : MonoBehaviour
     Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
     RaycastHit hit; 
     Physics.Raycast(ray, out hit);
-    if (hit.collider != null && hit.distance <= 1.54f && hit.collider.gameObject.CompareTag("Pickupable")) itemInRange = hit.collider.gameObject;
-    else itemInRange = null;
+        if (hit.collider != null && hit.distance <= 1.54f && hit.collider.gameObject.CompareTag("Pickupable"))
+        {
+            itemInRange = hit.collider.gameObject;
+            fakeBox = false;
+        }
+        else if (hit.collider != null && hit.distance <= 1.54f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
+        {
+            itemInRange = hit.collider.gameObject;
+            fakeBox = true;
+        }
+        else itemInRange = null;
+            
     }
 
     private void PickupItem()
