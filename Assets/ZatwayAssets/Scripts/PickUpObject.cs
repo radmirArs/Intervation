@@ -26,12 +26,12 @@ public class PickUpObject : MonoBehaviour
     Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
     RaycastHit hit; 
     Physics.Raycast(ray, out hit);
-        if (hit.collider != null && hit.distance <= 1.54f && hit.collider.gameObject.CompareTag("Pickupable"))
+        if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("Pickupable"))
         {
             itemInRange = hit.collider.gameObject;
             fakeBox = false;
         }
-        else if (hit.collider != null && hit.distance <= 1.54f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
+        else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
         {
             itemInRange = hit.collider.gameObject;
             fakeBox = true;
@@ -43,6 +43,7 @@ public class PickUpObject : MonoBehaviour
     private void PickupItem()
     {
         if (itemInRange != null) lastItem = itemInRange;
+        itemInRange.GetComponent<ItemDisabler>().EnableItem();
         itemInRange.transform.SetParent(handTransform); 
         itemInRange.transform.localPosition = Vector3.zero; 
         itemInRange.transform.localRotation = Quaternion.identity; 
@@ -53,7 +54,9 @@ public class PickUpObject : MonoBehaviour
     
     private void LeaveItem() 
     {
-        lastItem.transform.SetParent(null); 
+        lastItem.GetComponent<ItemDisabler>().DisableItem();
+        lastItem.transform.SetParent(null);
+        //lastItem.transform.position = 
         lastItem.GetComponent<Rigidbody>().isKinematic = false; 
         lastItem.GetComponent<Collider>().isTrigger = false; 
         isHolding = false;
