@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class EnemyVar1W : MonoBehaviour
 {
     public float distanceToDeath = 0f;
+    public float viewDistance = 10f;
     public List<Transform> patrolPoint;
     private NavMeshAgent _navMeshAgent;
     private int i;
@@ -28,6 +29,7 @@ public class EnemyVar1W : MonoBehaviour
         ChaseUpdate();
         PatrolUpdate();
     }
+
     void PlayerContactCheckUpdate()
     {
         var direction = player.transform.position - transform.position;
@@ -43,12 +45,11 @@ public class EnemyVar1W : MonoBehaviour
     {
         _isPlayerNoticed = false;
         var direction = player.transform.position - transform.position;
-        if (Vector3.Angle(transform.forward, direction) <= viewAngle)
+        if (Vector3.Angle(transform.forward, direction) <= viewAngle && direction.magnitude <= viewDistance)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + Vector3.up, direction, out hit))
             {
-
                 if (hit.collider.gameObject == player.gameObject)
                     _isPlayerNoticed = true;
             }

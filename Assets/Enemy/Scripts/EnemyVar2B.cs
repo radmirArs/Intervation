@@ -12,6 +12,7 @@ public class EnemyVar2B : MonoBehaviour
     public GameObject player;
     private bool _isPlayerNoticed;
     public float viewAngle;
+    public float viewDistance = 10f;
 
     void Start()
     {
@@ -30,12 +31,11 @@ public class EnemyVar2B : MonoBehaviour
     {
         _isPlayerNoticed = false;
         var direction = player.transform.position - transform.position;
-        if (Vector3.Angle(transform.forward, direction) <= viewAngle)
+        if (Vector3.Angle(transform.forward, direction) <= viewAngle && direction.magnitude <= viewDistance)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + Vector3.up, direction, out hit))
             {
-
                 if (hit.collider.gameObject == player.gameObject)
                     _isPlayerNoticed = true;
             }

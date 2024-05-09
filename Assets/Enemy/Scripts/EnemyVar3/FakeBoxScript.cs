@@ -11,7 +11,7 @@ public class FakeBoxScript : MonoBehaviour
     {
         if (other.gameObject == Player)
         {
-            Debug.Log("32");
+            Debug.Log("fake");
             Instantiate(Enemy3VarY, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

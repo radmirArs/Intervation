@@ -1,31 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ControllerFakeBox : MonoBehaviour
 {
-    public GameObject Enemy3VarY;
-    public GameObject Player;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public static void DestroyFakeBox(GameObject fakeBox)
     {
+        //заглушка
+        Debug.Log("FakeBox");
         Destroy(fakeBox);
-        ControllerFakeBox controllerFakeBox = new ControllerFakeBox();
-        controllerFakeBox.SpawnEnemy(fakeBox);
     }
 
-    public void SpawnEnemy(GameObject fakeBox)
+    public void SpawnEnemy(Vector3 position)
     {
-        GameObject enemy = Instantiate(Enemy3VarY, Player.transform.position+Vector3.up, Player.transform.rotation);
     }
 }
