@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 7199007783258014444}
   - component: {fileID: 7199007783258014443}
   - component: {fileID: 7199007783258014442}
-  - component: {fileID: 17115821088182863}
   m_Layer: 0
   m_Name: EnemyVar1
   m_TagString: Untagged
@@ -232,20 +231,4 @@ MonoBehaviour:
   - {fileID: 0}
   player: {fileID: 0}
   viewAngle: 100
---- !u!114 &17115821088182863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7199007783258014441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bee7d977eee26f4eaa851b359d87bfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceToDeath: 0
-  viewDistance: 10
-  patrolPoint: []
-  player: {fileID: 6033244186625797461, guid: fbc10fed33ad7cb499737c5dc0b1e4a8, type: 3}
-  viewAngle: 100
+  End_Scene: {fileID: 0}

@@ -5,14 +5,15 @@ using UnityEngine.UIElements;
 
 public class ControllerFakeBox : MonoBehaviour
 {
-    [SerializeField] public GameObject End_Scene_;
+    [SerializeField] GameObject End_Screen;
 
-    [SerializeField] public GameObject Screamer;
+    [SerializeField] GameObject Screamer;
 
-    public static void Set_End_Screen()
+    void Set_End_Screen()
     {
         Screamer.SetActive(false);
-        End_Scene_.SetActive(true);
+        End_Screen.SetActive(true);
+        Destroy(gameObject);
     }
 
     void Death()
@@ -21,13 +22,8 @@ public class ControllerFakeBox : MonoBehaviour
         Invoke("Set_End_Screen", 2);
     }
 
-    public static void DestroyFakeBox(GameObject fakeBox)
+    public void DestroyFakeBox()
     {
         Death();
-        Destroy(fakeBox);
-    }
-
-    public void SpawnEnemy(Vector3 position)
-    {
     }
 }

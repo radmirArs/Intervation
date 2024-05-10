@@ -18,6 +18,8 @@ public class EnemyVar1W : MonoBehaviour
 
     [SerializeField] GameObject End_Scene;
 
+    [SerializeField] GameObject Screamer;
+
     void Start()
     {
         InitComponentLinks();
@@ -32,12 +34,26 @@ public class EnemyVar1W : MonoBehaviour
         PatrolUpdate();
     }
 
+
+    void Death()
+    {
+        player.transform.position = new Vector3(0,-2,0);
+        Screamer.SetActive(true);
+        Invoke("Set_End_Screen", 2);
+    }
+
+    void Set_End_Screen()
+    {
+        Screamer.SetActive(false);
+        End_Scene.SetActive(true);
+    }
+
     void PlayerContactCheckUpdate()
     {
         var direction = player.transform.position - transform.position;
-        if (direction.x <= distanceToDeath && direction.y <= distanceToDeath && direction.z <= distanceToDeath)
+        if (direction.x <= distanceToDeath && direction.y <= distanceToDeath && direction.z <= distanceToDeath )
         {
-            End_Scene.SetActive(true);
+            Death();
         }
     }
 
@@ -55,7 +71,6 @@ public class EnemyVar1W : MonoBehaviour
             }
         }
     }
-
     void ChaseUpdate()
     {
         if (_isPlayerNoticed)

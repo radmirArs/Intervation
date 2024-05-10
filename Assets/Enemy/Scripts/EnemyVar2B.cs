@@ -9,8 +9,6 @@ public class EnemyVar2B : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private int i;
 
-
-
     public GameObject player;
     private bool _isPlayerNoticed;
     public float viewAngle;
@@ -50,13 +48,14 @@ public class EnemyVar2B : MonoBehaviour
 
     void Death()
     {
+        player.transform.position = new Vector3(0, -2, 0);
         Screamer.SetActive(true);
         Invoke("Set_End_Screen", 2);
     }
 
     void ChaseUpdate()
     {
-        if (_isPlayerNoticed)
+        if (_isPlayerNoticed )
         {
             Death();
         }

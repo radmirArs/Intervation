@@ -10,31 +10,34 @@ public class PickUpObject : MonoBehaviour
     private bool isHolding = false;
     private Vector3 Ray_start_position = new Vector3(Screen.width/2, Screen.height/2, 0);
     private bool fakeBox = false; //zatway 
+
+    public static bool Is_alive; //Blacklow
+
+    void Start()
+    {
+        Is_alive = true; // Blacklow
+    }
+
     void Update()
     {
         ReleaseRay();
-        if (Input.GetKeyDown(KeyCode.E)) 
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (!isHolding && itemInRange != null && fakeBox == false) PickupItem();
             else if (!isHolding && itemInRange != null && fakeBox == true)
             {
-                DestroyFakeBox(itemInRange);
+                ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
+                transform.position = new Vector3(0, -2, 0);
+                fakebox_controller.DestroyFakeBox();
             }
             else if (isHolding) LeaveItem();
         }
     }
-    public void DestroyFakeBox(GameObject fakeBox)
+    private void ReleaseRay()
     {
-        //заглушка
-        Debug.Log("FakeBox");
-
-        Destroy(fakeBox);
-    }
-    private void ReleaseRay() 
-    {
-    Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
-    RaycastHit hit; 
-    Physics.Raycast(ray, out hit);
+        Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
+        RaycastHit hit; 
+        Physics.Raycast(ray, out hit);
         if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("Pickupable"))
         {
             itemInRange = hit.collider.gameObject;
