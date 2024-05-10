@@ -11,7 +11,7 @@ public class PickUpObject : MonoBehaviour
     private Vector3 Ray_start_position = new Vector3(Screen.width/2, Screen.height/2, 0);
     private bool fakeBox = false; //zatway 
 
-    public static bool Is_alive; //Blacklow
+    public bool Is_alive; //Blacklow
 
     void Start()
     {
@@ -27,7 +27,6 @@ public class PickUpObject : MonoBehaviour
             else if (!isHolding && itemInRange != null && fakeBox == true)
             {
                 ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
-                transform.position = new Vector3(0, -2, 0);
                 fakebox_controller.DestroyFakeBox();
             }
             else if (isHolding) LeaveItem();
