@@ -16,11 +16,20 @@ public class PickUpObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) 
         {
             if (!isHolding && itemInRange != null && fakeBox == false) PickupItem();
-            else if (!isHolding && itemInRange != null && fakeBox == true) ControllerFakeBox.DestroyFakeBox(itemInRange); //zatway 
+            else if (!isHolding && itemInRange != null && fakeBox == true)
+            {
+                DestroyFakeBox(itemInRange);
+            }
             else if (isHolding) LeaveItem();
         }
     }
+    public void DestroyFakeBox(GameObject fakeBox)
+    {
+        //заглушка
+        Debug.Log("FakeBox");
 
+        Destroy(fakeBox);
+    }
     private void ReleaseRay() 
     {
     Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
