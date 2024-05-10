@@ -16,6 +16,8 @@ public class EnemyVar1W : MonoBehaviour
     private bool _isPlayerNoticed;
     public float viewAngle;
 
+    [SerializeField] GameObject End_Scene;
+
     void Start()
     {
         InitComponentLinks();
@@ -35,9 +37,7 @@ public class EnemyVar1W : MonoBehaviour
         var direction = player.transform.position - transform.position;
         if (direction.x <= distanceToDeath && direction.y <= distanceToDeath && direction.z <= distanceToDeath)
         {
-            Debug.Log("Сцена смерти");
-            //заглушка
-            //SceneManager.LoadScene("Game_End_Scene");
+            End_Scene.SetActive(true);
         }
     }
 

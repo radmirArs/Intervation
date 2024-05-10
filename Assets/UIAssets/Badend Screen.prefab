@@ -328,6 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 295753118950723446}
+  - component: {fileID: 268142484007800885}
   m_Layer: 5
   m_Name: Badend Screen
   m_TagString: Untagged
@@ -356,6 +357,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &268142484007800885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681581352840197606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f14c0f177fe19a64aae94481ab8354ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4861263024737540836
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +488,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: StartGame
+      - m_Target: {fileID: 268142484007800885}
+        m_MethodName: Load_Main_menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

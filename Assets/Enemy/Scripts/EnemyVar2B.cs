@@ -9,10 +9,16 @@ public class EnemyVar2B : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private int i;
 
+
+
     public GameObject player;
     private bool _isPlayerNoticed;
     public float viewAngle;
     public float viewDistance = 10f;
+
+    [SerializeField] GameObject End_Scene;
+
+    [SerializeField] GameObject Screamer;
 
     void Start()
     {
@@ -42,14 +48,25 @@ public class EnemyVar2B : MonoBehaviour
         }
     }
 
+    void Death()
+    {
+        Screamer.SetActive(true);
+        Invoke("Set_End_Screen", 2);
+    }
+
     void ChaseUpdate()
     {
         if (_isPlayerNoticed)
         {
-            Debug.Log("Смерть");
-            //заглушка
+            Death();
         }
 
+    }
+
+    void Set_End_Screen()
+    {
+        Screamer.SetActive(false);
+        End_Scene.SetActive(true);
     }
 
     void PatrolUpdate()
