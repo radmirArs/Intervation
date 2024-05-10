@@ -10,6 +10,7 @@ public class EnemyVar2B : MonoBehaviour
     private int i;
 
     public GameObject player;
+    public PickUpObject PickUp;
     private bool _isPlayerNoticed;
     public float viewAngle;
     public float viewDistance = 10f;
@@ -46,22 +47,27 @@ public class EnemyVar2B : MonoBehaviour
         }
     }
 
-    void Death()
-    {
-        player.transform.position = new Vector3(0, -2, 0);
-        Screamer.SetActive(true);
-        Invoke("Set_End_Screen", 2);
-    }
+  
 
     void ChaseUpdate()
     {
-        if (_isPlayerNoticed )
+        if (_isPlayerNoticed)
         {
-            Death();
+            if (PickUp.Is_alive == true)
+            {
+                PickUp.Is_alive = false;
+                Death();
+            }
+            
         }
 
     }
 
+    void Death()
+    {
+        Screamer.SetActive(true);
+        Invoke("Set_End_Screen", 2);
+    }
     void Set_End_Screen()
     {
         Screamer.SetActive(false);

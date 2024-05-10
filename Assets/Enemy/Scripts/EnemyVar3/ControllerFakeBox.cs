@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class ControllerFakeBox : MonoBehaviour
 {
+    public PickUpObject PickUp;
     [SerializeField] GameObject End_Screen;
 
     [SerializeField] GameObject Screamer;
@@ -24,6 +25,10 @@ public class ControllerFakeBox : MonoBehaviour
 
     public void DestroyFakeBox()
     {
-        Death();
+        if (PickUp.Is_alive == true)
+        {
+            PickUp.Is_alive = false;
+            Death();
+        }
     }
 }
