@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: "\u0439\u043E\u0444\u0446\u043A\u0440"
   productName: Intervation
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

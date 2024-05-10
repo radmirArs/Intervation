@@ -55,22 +55,27 @@ public class PickUpObject : MonoBehaviour
     private void PickupItem()
     {
         if (itemInRange != null) lastItem = itemInRange;
+        foreach (Transform i in itemInRange.GetComponentsInChildren<Transform>())
+        {
+            i.gameObject.layer = LayerMask.NameToLayer("Weapons");
+        }
         itemInRange.GetComponent<ItemDisabler>().EnableItem();
         itemInRange.transform.SetParent(handTransform); 
         itemInRange.transform.localPosition = Vector3.zero; 
         itemInRange.transform.localRotation = Quaternion.identity; 
         itemInRange.GetComponent<Rigidbody>().isKinematic = true; 
-        itemInRange.GetComponent<Collider>().isTrigger = true; 
         isHolding = true;
     }
     
     private void LeaveItem() 
     {
         lastItem.GetComponent<ItemDisabler>().DisableItem();
-        lastItem.transform.SetParent(null);
-        //lastItem.transform.position = 
+        foreach (Transform i in lastItem.GetComponentsInChildren<Transform>())
+        {
+            i.gameObject.layer = LayerMask.NameToLayer("Default");
+        }
         lastItem.GetComponent<Rigidbody>().isKinematic = false; 
-        lastItem.GetComponent<Collider>().isTrigger = false; 
+        lastItem.transform.SetParent(null);
         isHolding = false;
     }
 }
