@@ -10,14 +10,14 @@ public class ControllerFakeBox : MonoBehaviour
 
     [SerializeField] GameObject Screamer;
 
-    void Set_End_Screen()
+    private void Set_End_Screen()
     {
         Screamer.SetActive(false);
         End_Screen.SetActive(true);
         Destroy(gameObject);
     }
 
-    void Death()
+    private void Death()
     {
         Screamer.SetActive(true);
         Invoke("Set_End_Screen", 2);

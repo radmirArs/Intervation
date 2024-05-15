@@ -10,6 +10,7 @@ public class PickUpObject : MonoBehaviour
     private bool isHolding = false;
     private Vector3 Ray_start_position = new Vector3(Screen.width/2, Screen.height/2, 0);
     private bool fakeBox = false; //zatway 
+    private bool normalBox = false; //Blacklow
 
     public bool Is_alive; //Blacklow
 
@@ -29,6 +30,11 @@ public class PickUpObject : MonoBehaviour
                 ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
                 fakebox_controller.DestroyFakeBox();
             }
+            else if (!isHolding && itemInRange != null && normalBox == true)
+            {
+                NormalBox box = itemInRange.GetComponent<NormalBox>(); //Blacklow
+                box.Open_Box();
+            }
             else if (isHolding) LeaveItem();
         }
     }
@@ -41,11 +47,17 @@ public class PickUpObject : MonoBehaviour
         {
             itemInRange = hit.collider.gameObject;
             fakeBox = false;
+            normalBox = false;
         }
         else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
         {
             itemInRange = hit.collider.gameObject;
             fakeBox = true;
+        }
+        else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("NormalBox")) //Blacklow 
+        {
+            itemInRange = hit.collider.gameObject;
+            normalBox = true;
         }
         else itemInRange = null;
             

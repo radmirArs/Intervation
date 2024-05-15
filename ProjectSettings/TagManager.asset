@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickupable
   - FakeBox
+  - NormalBox
   layers:
   - Default
   - TransparentFX
