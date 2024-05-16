@@ -1,22 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PickUpObject : MonoBehaviour
 {
+    [SerializeField] Image KeyIcon; //Blacklow
+
+    [SerializeField] float MaxKeys;
+
     public Transform handTransform; 
     public GameObject itemInRange;
+
     private GameObject lastItem;
     private bool isHolding = false;
     private Vector3 Ray_start_position = new Vector3(Screen.width/2, Screen.height/2, 0);
     private bool fakeBox = false; //zatway 
+
     private bool normalBox = false; //Blacklow
+    private bool key = false; //Blacklow
+    private bool door = false; //Blacklow
+
+    public float KeysCollected; //Blacklow
+
+
+
 
     public bool Is_alive; //Blacklow
 
     void Start()
     {
         Is_alive = true; // Blacklow
+        UpdateKeyIcon();
+
     }
 
     void Update()
@@ -24,20 +41,46 @@ public class PickUpObject : MonoBehaviour
         ReleaseRay();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!isHolding && itemInRange != null && fakeBox == false) PickupItem();
+            if (!isHolding && itemInRange != null && fakeBox == false && normalBox == false && key == false && door == false) PickupItem();
             else if (!isHolding && itemInRange != null && fakeBox == true)
             {
                 ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
                 fakebox_controller.DestroyFakeBox();
+                fakeBox = false;
             }
             else if (!isHolding && itemInRange != null && normalBox == true)
             {
                 NormalBox box = itemInRange.GetComponent<NormalBox>(); //Blacklow
                 box.Open_Box();
+                normalBox = false;
+            }
+            else if (!isHolding && itemInRange != null && door == true)
+            {
+                if (MaxKeys == KeysCollected)
+                {
+                    KeysCollected = 0;
+                    UpdateKeyIcon();
+                    Destroy(itemInRange);
+                }
+                door = false;
+            }
+            else if (!isHolding && itemInRange != null && key == true)
+            {
+                KeysCollected++;
+                UpdateKeyIcon();
+                Destroy(itemInRange);
+                key = false;
             }
             else if (isHolding) LeaveItem();
         }
     }
+
+    private void UpdateKeyIcon()
+    {
+        float fillAmount = KeysCollected / MaxKeys;
+        KeyIcon.fillAmount = fillAmount;
+    }
+
     private void ReleaseRay()
     {
         Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
@@ -48,6 +91,8 @@ public class PickUpObject : MonoBehaviour
             itemInRange = hit.collider.gameObject;
             fakeBox = false;
             normalBox = false;
+            key = false;
+            door = false;
         }
         else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
         {
@@ -58,6 +103,16 @@ public class PickUpObject : MonoBehaviour
         {
             itemInRange = hit.collider.gameObject;
             normalBox = true;
+        }
+        else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("Key")) //Blacklow 
+        {
+            itemInRange = hit.collider.gameObject;
+            key = true;
+        }
+        else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("Door")) //Blacklow 
+        {
+            itemInRange = hit.collider.gameObject;
+            door = true;
         }
         else itemInRange = null;
             
