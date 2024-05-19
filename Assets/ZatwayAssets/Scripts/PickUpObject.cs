@@ -74,7 +74,8 @@ public class PickUpObject : MonoBehaviour
         itemInRange.transform.SetParent(handTransform); 
         itemInRange.transform.localPosition = Vector3.zero; 
         itemInRange.transform.localRotation = Quaternion.identity; 
-        itemInRange.GetComponent<Rigidbody>().isKinematic = true; 
+        itemInRange.GetComponent<Rigidbody>().isKinematic = true;
+        itemInRange.GetComponent<Collider>().isTrigger = true; 
         isHolding = true;
     }
     
@@ -85,7 +86,8 @@ public class PickUpObject : MonoBehaviour
         {
             i.gameObject.layer = LayerMask.NameToLayer("Default");
         }
-        lastItem.GetComponent<Rigidbody>().isKinematic = false; 
+        lastItem.GetComponent<Rigidbody>().isKinematic = false;
+        lastItem.GetComponent<Collider>().isTrigger = false; 
         lastItem.transform.SetParent(null);
         isHolding = false;
     }
