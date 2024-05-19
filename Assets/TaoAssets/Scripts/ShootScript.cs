@@ -6,8 +6,9 @@ public class ShootScript : MonoBehaviour
 {
     RaycastHit hit; //Переменная для удара
     public ParticleSystem Explosion; //Партиклы
+    public Animator Recoil; //Анимка
     bool canShoot = true; //Переменная для задержки
-    public float Delay = 0.2f; //Задержка
+    public float Delay = 0.3f; //Задержка
 
     void Update()
     {
@@ -16,12 +17,13 @@ public class ShootScript : MonoBehaviour
         if (Input.GetMouseButton(0) && canShoot) { //Если нажата ЛКМ и можно стрелять...
             canShoot = false; //стрелять нельзя.
             if (!IsInvoking("MakeShoot")) Invoke("MakeShoot", Delay); //но потом можна!
-            Debug.Log($"Shoot!"); //Индикатор для стрельбы
-            Explosion.Play();
+            Explosion.Play(); //Партиклы
+            Recoil.SetTrigger("toShoot"); //Триггер для аниматора
             if (hit.collider != null && hit.collider.gameObject.tag == "Enemy") { //Если нацелен на врага и стреляет..
 
 
                 //...ТВОЙ КОД ЗДЕСЬ ТИПА ЧО ДЕЛАЕТ
+                //Он должен делать что-либо, если луч, проведённый от центра экрана в сторону gameObject с тегом Enemy, находит его и при нажатии что-либо выполняется
 
 
             }
