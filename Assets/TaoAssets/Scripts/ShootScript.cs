@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     RaycastHit hit; //Переменная для удара
+    public ParticleSystem Explosion; //Партиклы
     bool canShoot = true; //Переменная для задержки
     public float Delay = 0.2f; //Задержка
 
@@ -16,8 +17,13 @@ public class ShootScript : MonoBehaviour
             canShoot = false; //стрелять нельзя.
             if (!IsInvoking("MakeShoot")) Invoke("MakeShoot", Delay); //но потом можна!
             Debug.Log($"Shoot!"); //Индикатор для стрельбы
-            if (hit.collider != null && hit.collider.gameObject.tag == "Enemy") { //Если нацелен на врага и стреляет... ЗДЕСЬ
+            Explosion.Play();
+            if (hit.collider != null && hit.collider.gameObject.tag == "Enemy") { //Если нацелен на врага и стреляет..
+
+
                 //...ТВОЙ КОД ЗДЕСЬ ТИПА ЧО ДЕЛАЕТ
+
+
             }
         }
     }
