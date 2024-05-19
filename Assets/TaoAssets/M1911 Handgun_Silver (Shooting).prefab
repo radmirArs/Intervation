@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &845194837
 Transform:
   m_ObjectHideFlags: 0
@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b7ca66fef1f4b4189987bd680431be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Delay: 0.2
 --- !u!54 &1230950293
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -72,6 +73,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 845194836}
+--- !u!65 &1245487618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201400487965497620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.045462243, y: 0.30912626, z: 0.5020075}
+  m_Center: {x: -0.0010106917, y: 0.08512618, z: 0.1500125}
 --- !u!1001 &601582772489984923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -172,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 7763809825007691001, guid: 5c59210965ffbcc4093fe99a29edb777,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7763809825007691001, guid: 5c59210965ffbcc4093fe99a29edb777,
         type: 3}
@@ -187,7 +201,7 @@ PrefabInstance:
     - target: {fileID: 7763809825007691001, guid: 5c59210965ffbcc4093fe99a29edb777,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7763809825007691001, guid: 5c59210965ffbcc4093fe99a29edb777,
         type: 3}
@@ -202,7 +216,7 @@ PrefabInstance:
     - target: {fileID: 7763809825007691001, guid: 5c59210965ffbcc4093fe99a29edb777,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8309115824573975323, guid: 5c59210965ffbcc4093fe99a29edb777,
         type: 3}
