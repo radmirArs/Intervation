@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
     public Transform player;
+
+    [SerializeField] GameObject GameplayUI;
 
     void OnEnable()
     {
         Set_Time_on_Pause();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GameplayUI.SetActive(true);
 
     }
 
     private void Set_Time_on_Pause()
     {
         Time.timeScale = 0f;
+        GameplayUI.SetActive(false);
     }
 
     private void Set_Time_on_Play()
     {
         Time.timeScale = 1f;
+        GameplayUI.SetActive(true);
     }
 
     public void Load_Main_menu()

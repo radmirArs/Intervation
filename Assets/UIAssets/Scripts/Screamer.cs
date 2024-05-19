@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Screamer : MonoBehaviour
 {
+    [SerializeField] GameObject GameplayUI;
 
+    void OnEnable()
+    {
+        GameplayUI.SetActive(false);
+    }
 }
