@@ -9,6 +9,8 @@ TagManager:
   - NormalBox
   - Key
   - Door
+  - Enemy
+  - Enemy 2
   layers:
   - Default
   - TransparentFX

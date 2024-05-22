@@ -233,8 +233,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickUp: {fileID: 0}
-  End_Screen: {fileID: 0}
-  Screamer: {fileID: 0}
+  End_Screen: {fileID: 2681581352840197606, guid: 690f1d8be55f75d46aa39b4e63966ad7,
+    type: 3}
+  Screamer: {fileID: 2880820434319313300, guid: 1305d24c4d0582c438015dc397d8e65b,
+    type: 3}
 --- !u!1 &6451719311167876648
 GameObject:
   m_ObjectHideFlags: 0

@@ -528,6 +528,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 690f1d8be55f75d46aa39b4e63966ad7, type: 3}
+--- !u!195 &607091631 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 7262875197614840027, guid: 65a942446a891804b867ce5d375c2a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 7262875199506638846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &607091632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7262875197614840028, guid: 65a942446a891804b867ce5d375c2a05,
+    type: 3}
+  m_PrefabInstance: {fileID: 7262875199506638846}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bee7d977eee26f4eaa851b359d87bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &682702871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1210,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol
       objectReference: {fileID: 0}
+    - target: {fileID: 9204847725896077442, guid: 07eb33f4b2b057e44a6acd64bdf13061,
+        type: 3}
+      propertyPath: enemy1
+      value: 
+      objectReference: {fileID: 607091632}
+    - target: {fileID: 9204847725896077442, guid: 07eb33f4b2b057e44a6acd64bdf13061,
+        type: 3}
+      propertyPath: stun_time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204847725896077442, guid: 07eb33f4b2b057e44a6acd64bdf13061,
+        type: 3}
+      propertyPath: enemy1navMesh
+      value: 
+      objectReference: {fileID: 607091631}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07eb33f4b2b057e44a6acd64bdf13061, type: 3}
 --- !u!1 &1264015767 stripped
@@ -2472,6 +2505,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9061077355116057922, guid: 1ebead0f44d74a7439020a1a165c38e9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9061077355116057923, guid: 1ebead0f44d74a7439020a1a165c38e9,
         type: 3}
       propertyPath: m_Enabled
@@ -2806,6 +2844,21 @@ PrefabInstance:
       propertyPath: End_Scene
       value: 
       objectReference: {fileID: 1887209029}
+    - target: {fileID: 7262875197614840028, guid: 65a942446a891804b867ce5d375c2a05,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262875197614840028, guid: 65a942446a891804b867ce5d375c2a05,
+        type: 3}
+      propertyPath: viewAngle
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262875197614840028, guid: 65a942446a891804b867ce5d375c2a05,
+        type: 3}
+      propertyPath: distanceToDeath
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7262875197614840028, guid: 65a942446a891804b867ce5d375c2a05,
         type: 3}
       propertyPath: patrolPoint.Array.data[0]

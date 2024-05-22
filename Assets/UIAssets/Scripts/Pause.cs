@@ -15,7 +15,6 @@ public class Pause : MonoBehaviour
         Set_Time_on_Pause();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        GameplayUI.SetActive(true);
 
     }
 

@@ -35,6 +35,8 @@ public class ShootScript : MonoBehaviour
 
                 itemInRange = hit.collider.gameObject;
 
+                enemy1.isPlayerNoticed = false;
+
                 enemy1.enabled = false;
 
                 enemy1navMesh.speed = 0f;
@@ -70,6 +72,5 @@ public class ShootScript : MonoBehaviour
     {
         enemy1navMesh.speed = speed;
         enemy1.enabled = true;
-        Debug.Log(enemy1.enabled);
     }
 }

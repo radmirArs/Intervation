@@ -14,7 +14,7 @@ public class EnemyVar1W : MonoBehaviour
 
     public GameObject player;
     public PickUpObject PickUp;
-    private bool _isPlayerNoticed;
+    public bool isPlayerNoticed = false;
     public float viewAngle;
 
     [SerializeField] GameObject End_Scene;
@@ -51,20 +51,25 @@ public class EnemyVar1W : MonoBehaviour
 
     void PlayerContactCheckUpdate()
     {
-        var direction = player.transform.position - transform.position;
-        if (direction.x <= distanceToDeath && direction.y <= distanceToDeath && direction.z <= distanceToDeath )
+        if (isPlayerNoticed) 
         {
-            if (PickUp.Is_alive == true)
+            var direction = player.transform.position - transform.position;
+            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
             {
-                PickUp.Is_alive = false;
-                Death();
+                if (PickUp.Is_alive == true)
+                {
+                    PickUp.Is_alive = false;
+                    Death();
+                }
             }
+
         }
+        
     }
 
     void ControlRaycastEnemyUpdate()
     {
-        _isPlayerNoticed = false;
+        isPlayerNoticed = false;
         var direction = player.transform.position - transform.position;
         if (Vector3.Angle(transform.forward, direction) <= viewAngle && direction.magnitude <= viewDistance)
         {
@@ -72,23 +77,24 @@ public class EnemyVar1W : MonoBehaviour
             if (Physics.Raycast(transform.position + Vector3.up, direction, out hit))
             {
                 if (hit.collider.gameObject == player.gameObject)
-                    _isPlayerNoticed = true;
+                    isPlayerNoticed = true;
             }
         }
     }
     void ChaseUpdate()
     {
-        if (_isPlayerNoticed)
+        if (isPlayerNoticed)
             _navMeshAgent.destination = player.transform.position;
     }
 
     void PatrolUpdate()
     {
-        if (!_isPlayerNoticed)
+        if (!isPlayerNoticed)
         {
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
                 EnemyMoveForPointRandom();
         }
+
     }
 
     void EnemyMoveForPointRandom()
