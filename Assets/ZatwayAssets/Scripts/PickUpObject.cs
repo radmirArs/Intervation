@@ -24,9 +24,6 @@ public class PickUpObject : MonoBehaviour
 
     public float KeysCollected; //Blacklow
 
-
-
-
     public bool Is_alive; //Blacklow
 
     void Start()

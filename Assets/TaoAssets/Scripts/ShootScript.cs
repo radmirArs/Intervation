@@ -12,14 +12,18 @@ public class ShootScript : MonoBehaviour
     public GameObject itemInRange;
     [SerializeField] EnemyVar1W enemy1;
     [SerializeField] UnityEngine.AI.NavMeshAgent enemy1navMesh;
+    [SerializeField] EnemyVar2B enemy2;
+    [SerializeField] UnityEngine.AI.NavMeshAgent enemy2navMesh;
 
     [SerializeField] float stun_time;
 
     public float speed;
+    public float speed2;
 
     void Start()
     {
         speed = enemy1navMesh.speed;
+        speed2 = enemy2navMesh.speed;
     }
 
     void Update()
@@ -48,12 +52,17 @@ public class ShootScript : MonoBehaviour
 
 
             }
-            if (hit.collider != null && hit.collider.gameObject.tag == "Enemy 2")
+            if (hit.collider != null && hit.collider.gameObject.tag == "Enemy 2" && !IsInvoking("Stun_enemy2") )
             { //Если нацелен на врага и стреляет..
 
                 itemInRange = hit.collider.gameObject;
 
-                
+                enemy2.enabled = false;
+
+                enemy2navMesh.speed = 0f;
+                Invoke("Stun_enemy2", stun_time);
+
+
 
                 //...ТВОЙ КОД ЗДЕСЬ ТИПА ЧО ДЕЛАЕТ
                 //Он должен делать что-либо, если луч, проведённый от центра экрана в сторону gameObject с тегом Enemy, находит его и при нажатии что-либо выполняется
@@ -72,5 +81,10 @@ public class ShootScript : MonoBehaviour
     {
         enemy1navMesh.speed = speed;
         enemy1.enabled = true;
+    }
+    void Stun_enemy2()
+    {
+        enemy2navMesh.speed = speed2;
+        enemy2.enabled = true;
     }
 }
