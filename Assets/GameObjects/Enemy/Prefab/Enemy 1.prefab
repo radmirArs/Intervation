@@ -275,7 +275,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.15
-  m_Height: 0.73960495
+  m_Height: 0.89
   m_Direction: 1
   m_Center: {x: -0.0075883865, y: 0.33836842, z: 0.00768137}
 --- !u!114 &7262875197614840028
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bee7d977eee26f4eaa851b359d87bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToDeath: 0
+  distanceToDeath: 0.1
   viewDistance: 10
   patrolPoint:
   - {fileID: 0}

@@ -42,12 +42,16 @@ public class EnemyVar2B : MonoBehaviour
             if (Physics.Raycast(transform.position + Vector3.up, direction, out hit))
             {
                 if (hit.collider.gameObject == player.gameObject)
+                {
+
+                    Debug.DrawLine(transform.position + Vector3.up, hit.point, Color.green);
                     _isPlayerNoticed = true;
+
+                }
             }
         }
-    }
 
-  
+    }
 
     void ChaseUpdate()
     {
