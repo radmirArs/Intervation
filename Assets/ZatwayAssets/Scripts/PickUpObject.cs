@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PickUpObject : MonoBehaviour
@@ -21,6 +22,7 @@ public class PickUpObject : MonoBehaviour
     private bool normalBox = false; //Blacklow
     private bool key = false; //Blacklow
     private bool door = false; //Blacklow
+    private bool end = false; //Taorinio
 
     public float KeysCollected; //Blacklow
 
@@ -68,6 +70,9 @@ public class PickUpObject : MonoBehaviour
                 Destroy(itemInRange);
                 key = false;
             }
+            else if (!isHolding && itemInRange != null && end == true) {
+                SceneManager.LoadScene(3);
+            }
             else if (isHolding) LeaveItem();
         }
     }
@@ -87,6 +92,7 @@ public class PickUpObject : MonoBehaviour
         normalBox = false;
         key = false;
         door = false;
+        end = false;
         if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("Pickupable"))
         {
             itemInRange = hit.collider.gameObject;
@@ -110,6 +116,11 @@ public class PickUpObject : MonoBehaviour
         {
             itemInRange = hit.collider.gameObject;
             door = true;
+        }
+        else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("end")) //Taorinio 
+        {
+            itemInRange = hit.collider.gameObject;
+            end = true;
         }
         else itemInRange = null;
             
