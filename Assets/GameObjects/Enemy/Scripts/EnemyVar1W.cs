@@ -53,7 +53,6 @@ public class EnemyVar1W : MonoBehaviour
     {
         if (isPlayerNoticed) 
         {
-            Debug.Log(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance);
             var direction = player.transform.position - transform.position;
             if (Mathf.Abs(direction.x) <= distanceToDeath && Mathf.Abs(direction.y) <= distanceToDeath && Mathf.Abs(direction.z) <= distanceToDeath) 
             { 
