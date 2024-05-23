@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -21,6 +22,7 @@ public class PickUpObject : MonoBehaviour
     private bool normalBox = false; //Blacklow
     private bool key = false; //Blacklow
     private bool door = false; //Blacklow
+    private bool end = false; //Blacklow
 
     public float KeysCollected; //Blacklow
 
@@ -38,7 +40,7 @@ public class PickUpObject : MonoBehaviour
         ReleaseRay();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!isHolding && itemInRange != null && fakeBox == false && normalBox == false && key == false && door == false) PickupItem();
+            if (!isHolding && itemInRange != null && fakeBox == false && normalBox == false && key == false && door == false && end == false) PickupItem();
             else if (!isHolding && itemInRange != null && fakeBox == true)
             {
                 ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
@@ -60,6 +62,15 @@ public class PickUpObject : MonoBehaviour
                     Destroy(itemInRange);
                 }
                 door = false;
+            }
+            else if (!isHolding && itemInRange != null && end == true)
+            {
+                if (MaxKeys == KeysCollected)
+                {
+                    KeysCollected = 0;
+                    SceneManager.LoadScene("end");
+                }
+                end = false;
             }
             else if (!isHolding && itemInRange != null && key == true)
             {
@@ -90,6 +101,7 @@ public class PickUpObject : MonoBehaviour
             normalBox = false;
             key = false;
             door = false;
+            end = false;
         }
         else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
         {
@@ -110,6 +122,11 @@ public class PickUpObject : MonoBehaviour
         {
             itemInRange = hit.collider.gameObject;
             door = true;
+        }
+        else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("end")) //Blacklow 
+        {
+            itemInRange = hit.collider.gameObject;
+            end = true;
         }
         else itemInRange = null;
             

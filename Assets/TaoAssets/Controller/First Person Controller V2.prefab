@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   KeyIcon: {fileID: 0}
-  MaxKeys: 0
+  MaxKeys: 3
   handTransform: {fileID: 5828417924725734593}
   itemInRange: {fileID: 0}
   KeysCollected: 0
