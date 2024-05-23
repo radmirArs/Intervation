@@ -83,13 +83,13 @@ public class PickUpObject : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Ray_start_position);
         RaycastHit hit; 
         Physics.Raycast(ray, out hit);
+        fakeBox = false;
+        normalBox = false;
+        key = false;
+        door = false;
         if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("Pickupable"))
         {
             itemInRange = hit.collider.gameObject;
-            fakeBox = false;
-            normalBox = false;
-            key = false;
-            door = false;
         }
         else if (hit.collider != null && hit.distance <= 2f && hit.collider.gameObject.CompareTag("FakeBox")) //zatway 
         {
