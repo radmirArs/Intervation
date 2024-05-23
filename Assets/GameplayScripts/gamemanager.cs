@@ -12,7 +12,7 @@ public class gamemanager : MonoBehaviour
     private void Update()
     {
         Load_Pause();
-        Restart();
+        //Restart();
     }
 
     void Start()
@@ -44,13 +44,13 @@ public class gamemanager : MonoBehaviour
         PlayerPrefs.SetFloat("PosZ", 0);
     }
 
-    private void Restart()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reset_Data();
-            SceneManager.LoadScene(1);
-        }
-    }
+    //private void Restart()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.R))
+    //    {
+    //        Reset_Data();
+    //        SceneManager.LoadScene(1);
+    //    }
+    //}
 
 }
