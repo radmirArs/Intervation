@@ -9,5 +9,7 @@ public class Screamer : MonoBehaviour
     void OnEnable()
     {
         GameplayUI.SetActive(false);
+        SoundManager.Instance.PlayScrimmerSound();
+        SoundManager.Instance.PlayPlayerStepSound(false);
     }
 }
