@@ -53,9 +53,10 @@ public class EnemyVar1W : MonoBehaviour
     {
         if (isPlayerNoticed) 
         {
+            Debug.Log(_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance);
             var direction = player.transform.position - transform.position;
-            if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
-            {
+            if (Mathf.Abs(direction.x) <= distanceToDeath && Mathf.Abs(direction.y) <= distanceToDeath && Mathf.Abs(direction.z) <= distanceToDeath) 
+            { 
                 if (PickUp.Is_alive == true)
                 {
                     PickUp.Is_alive = false;
