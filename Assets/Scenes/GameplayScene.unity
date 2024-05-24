@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44632673, g: 0.49613154, b: 0.57466424, a: 1}
+  m_IndirectSpecularColor: {r: 0.44632643, g: 0.49613333, b: 0.5746654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2574,6 +2574,7 @@ GameObject:
   - component: {fileID: 264415414}
   - component: {fileID: 264415415}
   - component: {fileID: 264415416}
+  - component: {fileID: 264415417}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -2623,6 +2624,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 144741640}
   _MainMenu: {fileID: 351916559}
+--- !u!114 &264415417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264415413}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e7a875bd3b7fe45bd980e444339922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusicSource: {fileID: 0}
+  playerStepSource: {fileID: 0}
+  playerShootSource: {fileID: 0}
+  enemyStepSource: {fileID: 0}
+  scrimmerSource: {fileID: 0}
+  enemyAttackSource: {fileID: 0}
+  keyPickUpSource: {fileID: 0}
+  closeDoorSource: {fileID: 0}
+  openDoorSource: {fileID: 0}
+  backgroundMusic: {fileID: 0}
+  playerStepSounds: []
+  playerShootSound: {fileID: 0}
+  enemyStepSounds: []
+  scrimmerSound: {fileID: 0}
+  enemyAttackSound: {fileID: 0}
+  keyPickUpSound: {fileID: 0}
+  closeDoorSound: {fileID: 0}
+  openDoorSound: {fileID: 0}
 --- !u!4 &266773540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408920, guid: fb3f840c826314847ba67aaf7e4aef4e,
@@ -4054,7 +4085,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382029126}
   m_LocalRotation: {x: 0.11221323, y: 0.87377644, z: -0.40744847, w: 0.2406423}
-  m_LocalPosition: {x: -35.59514, y: 3, z: 40.540913}
+  m_LocalPosition: {x: -35.59514, y: 1.097, z: 40.540913}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
