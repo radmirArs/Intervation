@@ -13,6 +13,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource keyPickUpSource;
     public AudioSource closeDoorSource;
     public AudioSource openDoorSource;
+    public AudioSource openBoxSource;
 
     public AudioClip backgroundMusic;
     public AudioClip[] playerStepSounds;
@@ -23,6 +24,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip keyPickUpSound;
     public AudioClip closeDoorSound;
     public AudioClip openDoorSound;
+    public AudioClip openBoxSound;
 
     private static SoundManager instance = null;
       
@@ -131,4 +133,13 @@ public class SoundManager : MonoBehaviour
             openDoorSource.Play();
         }
     }
+    public void PlayOpenBoxSound()
+    {
+        if (openBoxSource != null && openBoxSound != null)
+        {
+            openBoxSource.clip = openBoxSound;
+            openBoxSource.Play();
+        }
+    }
+
 }

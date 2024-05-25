@@ -60,7 +60,9 @@ public class PickUpObject : MonoBehaviour
                     KeysCollected = 0;
                     UpdateKeyIcon();
                     Destroy(itemInRange);
+                    SoundManager.Instance.PlayOpenDoorSourceSource();
                 }
+                SoundManager.Instance.PlayCloseDoorSource();
                 door = false;
             }
             else if (!isHolding && itemInRange != null && key == true)
@@ -69,6 +71,7 @@ public class PickUpObject : MonoBehaviour
                 UpdateKeyIcon();
                 Destroy(itemInRange);
                 key = false;
+                SoundManager.Instance.PlayKeyPickUpSound();
             }
             else if (!isHolding && itemInRange != null && end == true) {
                 SceneManager.LoadScene(3);

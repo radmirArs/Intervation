@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.SceneManagement;
 
 public class EnemyVar1W : MonoBehaviour
 {
@@ -18,7 +16,6 @@ public class EnemyVar1W : MonoBehaviour
     public float viewAngle;
 
     [SerializeField] GameObject End_Scene;
-
     [SerializeField] GameObject Screamer;
 
     void Start()
@@ -35,10 +32,8 @@ public class EnemyVar1W : MonoBehaviour
         PatrolUpdate();
     }
 
-
     void Death()
     {
-        
         Screamer.SetActive(true);
         Invoke("Set_End_Screen", 2);
     }
@@ -51,20 +46,18 @@ public class EnemyVar1W : MonoBehaviour
 
     void PlayerContactCheckUpdate()
     {
-        if (isPlayerNoticed) 
+        if (isPlayerNoticed)
         {
             var direction = player.transform.position - transform.position;
-            if (Mathf.Abs(direction.x) <= distanceToDeath && Mathf.Abs(direction.y) <= distanceToDeath && Mathf.Abs(direction.z) <= distanceToDeath) 
-            { 
+            if (Mathf.Abs(direction.x) <= distanceToDeath && Mathf.Abs(direction.y) <= distanceToDeath && Mathf.Abs(direction.z) <= distanceToDeath)
+            {
                 if (PickUp.Is_alive == true)
                 {
                     PickUp.Is_alive = false;
                     Death();
                 }
             }
-
         }
-        
     }
 
     void ControlRaycastEnemyUpdate()
@@ -81,10 +74,15 @@ public class EnemyVar1W : MonoBehaviour
             }
         }
     }
+
     void ChaseUpdate()
     {
         if (isPlayerNoticed)
+        {
             _navMeshAgent.destination = player.transform.position;
+            SoundManager.Instance.PlayMobStepSound();
+
+        }
     }
 
     void PatrolUpdate()
@@ -94,7 +92,6 @@ public class EnemyVar1W : MonoBehaviour
             if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
                 EnemyMoveForPointRandom();
         }
-
     }
 
     void EnemyMoveForPointRandom()
