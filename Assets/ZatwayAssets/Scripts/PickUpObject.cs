@@ -43,12 +43,14 @@ public class PickUpObject : MonoBehaviour
             if (!isHolding && itemInRange != null && fakeBox == false && normalBox == false && key == false && door == false && end == false) PickupItem();
             else if (!isHolding && itemInRange != null && fakeBox == true)
             {
+                SoundManager.Instance.PlayOpenBoxSound();
                 ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
                 fakebox_controller.DestroyFakeBox();
                 fakeBox = false;
             }
             else if (!isHolding && itemInRange != null && normalBox == true)
             {
+                SoundManager.Instance.PlayOpenBoxSound();
                 NormalBox box = itemInRange.GetComponent<NormalBox>(); //Blacklow
                 box.Open_Box();
                 normalBox = false;
@@ -60,7 +62,9 @@ public class PickUpObject : MonoBehaviour
                     KeysCollected = 0;
                     UpdateKeyIcon();
                     Destroy(itemInRange);
+                    SoundManager.Instance.PlayOpenDoorSourceSource();
                 }
+                SoundManager.Instance.PlayCloseDoorSource();
                 door = false;
             }
             else if (!isHolding && itemInRange != null && key == true)
@@ -69,6 +73,7 @@ public class PickUpObject : MonoBehaviour
                 UpdateKeyIcon();
                 Destroy(itemInRange);
                 key = false;
+                SoundManager.Instance.PlayKeyPickUpSound();
             }
             else if (!isHolding && itemInRange != null && end == true) {
                 Cursor.lockState = CursorLockMode.None;

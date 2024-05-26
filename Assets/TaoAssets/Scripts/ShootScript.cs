@@ -31,6 +31,7 @@ public class ShootScript : MonoBehaviour
         var Ray = Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)); //Луч с центра камеры
         Physics.Raycast(Ray.origin, Ray.GetPoint(100), out hit); //Считывание удара с объектом
         if (Input.GetMouseButton(0) && canShoot) { //Если нажата ЛКМ и можно стрелять...
+            SoundManager.Instance.PlayPlayerShootSound();
             canShoot = false; //стрелять нельзя.
             if (!IsInvoking("MakeShoot")) Invoke("MakeShoot", Delay); //но потом можна!
             Explosion.Play(); //Партиклы
