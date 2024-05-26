@@ -40,7 +40,7 @@ public class PickUpObject : MonoBehaviour
         ReleaseRay();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (!isHolding && itemInRange != null && fakeBox == false && normalBox == false && key == false && door == false) PickupItem();
+            if (!isHolding && itemInRange != null && fakeBox == false && normalBox == false && key == false && door == false && end == false) PickupItem();
             else if (!isHolding && itemInRange != null && fakeBox == true)
             {
                 ControllerFakeBox fakebox_controller = itemInRange.GetComponent<ControllerFakeBox>(); //Blacklow
@@ -71,6 +71,8 @@ public class PickUpObject : MonoBehaviour
                 key = false;
             }
             else if (!isHolding && itemInRange != null && end == true) {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 SceneManager.LoadScene(3);
             }
             else if (isHolding) LeaveItem();

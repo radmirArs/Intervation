@@ -2646,6 +2646,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 618321452}
     m_Modifications:
+    - target: {fileID: 835782083767337977, guid: 16e0b0430c712eb49a95a905c2c27a19,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.0485938
+      objectReference: {fileID: 0}
+    - target: {fileID: 835782083767337977, guid: 16e0b0430c712eb49a95a905c2c27a19,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.19383137
+      objectReference: {fileID: 0}
+    - target: {fileID: 835782083767337977, guid: 16e0b0430c712eb49a95a905c2c27a19,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.49056602
+      objectReference: {fileID: 0}
     - target: {fileID: 1434805140039261930, guid: 16e0b0430c712eb49a95a905c2c27a19,
         type: 3}
       propertyPath: m_Name
@@ -3628,6 +3643,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
@@ -3726,6 +3745,11 @@ PrefabInstance:
     - target: {fileID: 1102993565462993726, guid: 0b7f3b033306b6d4b956436528383403,
         type: 3}
       propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311677145346951418, guid: 0b7f3b033306b6d4b956436528383403,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4379,7 +4403,7 @@ GameObject:
   - component: {fileID: 408048736}
   - component: {fileID: 408048738}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: tutor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4427,9 +4451,10 @@ MonoBehaviour:
 
     Jump on Space
 
-    Pick up on E
+    interaction on E
 
-    Fire on LMB'
+    Fire on
+    LMB'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11458,6 +11483,10 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196402, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       propertyPath: m_TagString
       value: Door
       objectReference: {fileID: 0}
@@ -11556,6 +11585,11 @@ PrefabInstance:
     - target: {fileID: 1102993565462993726, guid: 0b7f3b033306b6d4b956436528383403,
         type: 3}
       propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311677145346951418, guid: 0b7f3b033306b6d4b956436528383403,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -13866,7 +13900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 118334, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       propertyPath: m_TagString
-      value: end
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 118334, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13980,6 +14014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Convex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311677145346951418, guid: 0b7f3b033306b6d4b956436528383403,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7f3b033306b6d4b956436528383403, type: 3}
